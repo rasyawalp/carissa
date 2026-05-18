@@ -852,6 +852,159 @@
   }
 
 }
+
+/* ========================= */
+/* REALISTIC SHOOTING STAR */
+/* ========================= */
+
+.shooting-star {
+
+  position: absolute;
+
+  width: 160px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  opacity: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  overflow: visible;
+
+  transform:
+    rotate(35deg);
+}
+
+/* HEAD */
+
+.shooting-star::before {
+
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 50%;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transform: translateY(-50%);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.9),
+    0 0 35px rgba(255,255,255,0.6);
+}
+
+/* TAIL */
+
+.shooting-star::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0),
+      rgba(255,255,255,0.9)
+    );
+
+  filter: blur(1px);
+}
+
+/* STAR 1 */
+
+.star-1 {
+
+  top: 8%;
+  left: -200px;
+
+  animation:
+    realisticMeteor 16s linear infinite;
+
+  animation-delay: 1s;
+}
+
+/* STAR 2 */
+
+.star-2 {
+
+  top: 18%;
+  left: -240px;
+
+  animation:
+    realisticMeteor 20s linear infinite;
+
+  animation-delay: 7s;
+}
+
+/* STAR 3 */
+
+.star-3 {
+
+  top: 4%;
+  left: -180px;
+
+  animation:
+    realisticMeteor 18s linear infinite;
+
+  animation-delay: 13s;
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes realisticMeteor {
+
+  0% {
+
+    transform:
+      translate(0,0)
+      rotate(35deg);
+
+    opacity: 0;
+  }
+
+  3% {
+
+    opacity: 1;
+  }
+
+  10% {
+
+    opacity: 1;
+  }
+
+  18% {
+
+    opacity: 0;
+  }
+
+  100% {
+
+    transform:
+      translate(1600px, 850px)
+      rotate(35deg);
+
+    opacity: 0;
+  }
+
+}
   </style>
 </head>
 
@@ -869,6 +1022,12 @@
     <!-- BLUR -->
     <div class="blur-light top-[-100px] left-[-100px]"></div>
     <div class="blur-light bottom-[-120px] right-[-100px]"></div>
+
+<!-- SHOOTING STARS -->
+
+<div class="shooting-star star-1"></div>
+<div class="shooting-star star-2"></div>
+<div class="shooting-star star-3"></div>
 
     <!-- NAVBAR -->
 <nav id="navbar"
