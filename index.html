@@ -799,6 +799,59 @@
 
   font-weight: 400;
 }
+
+/* ========================= */
+/* HERO INTRO ANIMATION */
+/* ========================= */
+
+.fade-up {
+
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  animation: fadeUp 1.0s ease forwards;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+/* DELAY */
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.25s;
+}
+
+.delay-3 {
+  animation-delay: 0.4s;
+}
+
+.delay-4 {
+  animation-delay: 0.55s;
+}
+
+@keyframes fadeUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
   </style>
 </head>
 
@@ -886,7 +939,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:
         <div class="hero-content">
 
           <!-- ICON -->
-<div class="icons mb-6">
+<div class="icons mb-6 fade-up delay-1">
 
   <img
     src="carisserasimbol.png"
@@ -896,18 +949,16 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:
 
 </div>
 
-<p class="official-text">
+<p class="official-text mb-2 fade-up delay-2">
   Official Fanbase of Carissa Dini Asmaranti
 </p>
 
-<p class="official-text mb-2">
-
           <!-- TITLE -->
-<h1 class="logo-font text-[3.5rem] sm:text-[4.5rem] lg:text-[6.5rem] leading-none">
+<h1 class="logo-font fade-up delay-3 text-[3.5rem] sm:text-[4.5rem] lg:text-[6.5rem] leading-none">
             Carissera
           </h1>
 
-<p class="carissera-desc">
+<p class="carissera-desc fade-up delay-4">
   Ruang kecil untuk mendukung, mengapresiasi, dan tumbuh bersama Carissa JKT48 di setiap perjalanannya.
 </p>
 
@@ -916,7 +967,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:
             <button
               class="px-10 py-4 rounded-full border border-white text-lg hover:bg-white hover:text-[#020B3F] duration-300"
             >
-              Explore Collection →
+              Kenali Carissa →
             </button>
           </div>
 
