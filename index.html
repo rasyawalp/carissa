@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carissera</title>
+<link
+  rel="shortcut icon"
+  href="carisseralogo.jpg"
+/>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -1005,6 +1009,63 @@
   }
 
 }
+
+/* ========================= */
+/* NAVBAR ACTIVE MENU */
+/* ========================= */
+
+nav ul li a{
+
+  position: relative;
+
+  color: rgba(255,255,255,0.78);
+
+  transition: 0.35s ease;
+}
+
+/* HOVER */
+
+nav ul li a:hover{
+
+  color: white;
+}
+
+/* ACTIVE */
+
+nav ul li a.active{
+
+  color: #9bb8ff;
+
+  text-shadow:
+    0 0 12px rgba(155,184,255,0.6);
+}
+
+/* UNDERLINE */
+
+nav ul li a.active::after{
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 100%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8fb1ff,
+      #dbe6ff
+    );
+
+  box-shadow:
+    0 0 10px rgba(143,177,255,0.6);
+}
   </style>
 </head>
 
@@ -1052,7 +1113,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
       <!-- DESKTOP MENU -->
 <ul class="hidden md:flex items-center gap-8 text-[0.95rem]">
-        <li><a href="#">Home</a></li>
+<li><a href="index.html" class="active">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Gallery</a></li>
         <li><a href="#">Shop</a></li>
@@ -1124,7 +1185,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
           <!-- BUTTON -->
           <div class="mt-10">
             <button
-              class="px-10 py-4 rounded-full border border-white text-lg hover:bg-white hover:text-[#020B3F] duration-300"
+              class="px-6 py-3 rounded-full border border-white text-lg hover:bg-white hover:text-[#020B3F] duration-300"
             >
               Kenali Carissa →
             </button>
