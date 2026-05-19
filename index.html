@@ -33,17 +33,16 @@
     /* HERO BACKGROUND */
     /* ========================= */
 
-    .hero-bg {
-      min-height: 100vh;
-      position: relative;
-      overflow: hidden;
+.hero-bg {
 
-      background:
-        radial-gradient(circle at top,
-        #1027a0 0%,
-        #020b3f 55%,
-        #010625 100%);
-    }
+  min-height: 100vh;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: transparent;
+}
 
     /* ========================= */
     /* STARS */
@@ -1181,6 +1180,267 @@ nav ul li a.active::after{
   }
 
 }
+
+@media (max-width: 768px){
+
+  /* FOOTER MOBILE LAYOUT */
+  .footer-mobile-wrap{
+
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 28px;
+
+    align-items: start;
+  }
+
+  /* HASHTAG FULL WIDTH */
+  .footer-hashtag{
+
+    grid-column: span 2;
+  }
+
+}
+
+@media (min-width: 768px){
+
+  .grid.md\:grid-cols-3 > .grid.grid-cols-2{
+    display: contents;
+  }
+
+}
+
+/* ========================= */
+/* SECTION KENALI CARISSA */
+/* ========================= */
+
+.about-section{
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* CARD */
+
+.about-card{
+
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.28);
+
+  transition: 0.4s ease;
+}
+
+.about-card:hover{
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.35);
+}
+
+/* INFO BOX */
+
+.info-box{
+
+  background: rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  transition: 0.35s ease;
+}
+
+.info-box:hover{
+
+  background: rgba(255,255,255,0.07);
+
+  transform: translateY(-3px);
+}
+
+/* IMAGE FRAME */
+
+.about-image{
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.35);
+}
+
+.about-image img{
+
+  transition: 0.8s ease;
+}
+
+.about-image:hover img{
+
+  transform: scale(1.05);
+}
+
+/* OVERLAY */
+
+.about-image::after{
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(2,11,63,0.92),
+      transparent 55%
+    );
+}
+
+/* STAT BOX */
+
+.stat-box{
+
+  background: rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  transition: 0.35s ease;
+}
+
+.stat-box:hover{
+
+  transform: translateY(-5px);
+
+  background: rgba(255,255,255,0.07);
+}
+
+/* QUOTE */
+
+.quote-box{
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(80,120,255,0.12),
+      rgba(120,150,255,0.04)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+  .about-title{
+
+    font-size: 3rem !important;
+
+    -webkit-text-stroke: 1.5px #15155c;
+  }
+
+  .about-image img{
+
+    height: 460px !important;
+  }
+
+  .about-card{
+
+    padding: 24px !important;
+  }
+
+}
+
+/* ========================= */
+/* ABOUT STARS */
+/* ========================= */
+
+.about-stars{
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.35;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size:
+    140px 140px,
+    180px 180px,
+    220px 220px;
+
+  background-position:
+    0 0,
+    70px 90px,
+    120px 40px;
+
+  pointer-events: none;
+}
+
+.main-cosmic-bg{
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #1027a0 0%,
+      #020b3f 45%,
+      #010625 100%
+    );
+}
+
+/* STARS GLOBAL */
+
+.main-cosmic-bg::before{
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.35;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size:
+    140px 140px,
+    220px 220px;
+
+  background-position:
+    0 0,
+    80px 100px;
+}
   </style>
 </head>
 
@@ -1188,6 +1448,8 @@ nav ul li a.active::after{
 
 <!-- SCROLL PROGRESS -->
 <div id="progressBar"></div>
+
+<div class="main-cosmic-bg">
 
   <!-- HERO -->
   <section class="hero-bg text-white">
@@ -1344,6 +1606,204 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
   </section>
 
+<!-- ========================= -->
+<!-- SECTION : KENALI CARISSA -->
+<!-- ========================= -->
+
+<section class="about-section py-24 px-6 lg:px-16">
+
+<!-- STARS -->
+<div class="about-stars"></div>
+
+  <!-- BLUR -->
+  <div class="absolute top-[-120px] left-[-100px] w-[300px] h-[300px] bg-blue-400/10 blur-[120px] rounded-full"></div>
+  <div class="absolute bottom-[-120px] right-[-100px] w-[320px] h-[320px] bg-indigo-400/10 blur-[120px] rounded-full"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+
+    <!-- TITLE -->
+    <div class="text-center mb-16">
+
+      <p class="official-text mb-3">
+        About Her
+      </p>
+
+      <h2 class="logo-font about-title text-[2.8rem] md:text-[4rem] leading-none">
+        Kenali Carissa
+      </h2>
+
+      <p class="text-white/65 mt-5 max-w-2xl mx-auto leading-8 text-sm md:text-base">
+        Sosok ceria dengan senyuman hangat yang selalu berhasil membawa warna di setiap penampilannya bersama JKT48.
+      </p>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+      <!-- LEFT -->
+      <div class="relative flex justify-center">
+
+        <!-- GLOW -->
+        <div class="absolute w-[340px] h-[340px] bg-blue-400/20 rounded-full blur-[100px]"></div>
+
+        <!-- IMAGE -->
+        <div class="about-image relative w-full max-w-[420px]">
+
+          <img
+            src="kabeshacarissa.jpg"
+            alt="Carissa"
+            class="w-full h-[560px] object-cover"
+          />
+
+          <!-- TEXT -->
+          <div class="absolute bottom-0 left-0 p-7 z-10">
+
+            <p class="text-white/60 text-sm mb-2">
+              14th Generation of JKT48
+            </p>
+
+            <h3 class="text-white text-3xl font-semibold">
+              Carissa Dini Asmaranti
+            </h3>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+
+        <!-- CARD -->
+        <div class="about-card rounded-[30px] p-7 md:p-9">
+
+          <!-- INFO -->
+          <div class="grid sm:grid-cols-2 gap-5">
+
+            <div class="info-box rounded-2xl p-5">
+
+              <p class="text-white/45 text-sm mb-2">
+                Nama Lengkap
+              </p>
+
+              <h4 class="text-white text-lg font-medium">
+                Carissa Dini Asmaranti
+              </h4>
+
+            </div>
+
+            <div class="info-box rounded-2xl p-5">
+
+              <p class="text-white/45 text-sm mb-2">
+                Generasi
+              </p>
+
+              <h4 class="text-white text-lg font-medium">
+                JKT48 Generasi 14
+              </h4>
+
+            </div>
+
+            <div class="info-box rounded-2xl p-5">
+
+              <p class="text-white/45 text-sm mb-2">
+                Birthday
+              </p>
+
+              <h4 class="text-white text-lg font-medium">
+                12 Februari
+              </h4>
+
+            </div>
+
+            <div class="info-box rounded-2xl p-5">
+
+              <p class="text-white/45 text-sm mb-2">
+                Oshi Color
+              </p>
+
+              <h4 class="text-white text-lg font-medium">
+                Biru • Putih
+              </h4>
+
+            </div>
+
+          </div>
+
+          <!-- QUOTE -->
+          <div class="quote-box mt-8 rounded-2xl p-6">
+
+            <p class="text-white/80 leading-8 text-[0.95rem]">
+              “Melalui setiap senyum, suara, dan langkah kecilnya di atas panggung, Carissa selalu berhasil menciptakan momen hangat yang membuat banyak orang merasa dekat dengannya.”
+            </p>
+
+          </div>
+
+          <!-- STATS -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+
+            <div class="stat-box rounded-2xl p-5 text-center">
+
+              <h5 class="text-2xl font-bold text-white">
+                48+
+              </h5>
+
+              <p class="text-white/45 text-sm mt-2">
+                Theater Show
+              </p>
+
+            </div>
+
+            <div class="stat-box rounded-2xl p-5 text-center">
+
+              <h5 class="text-2xl font-bold text-white">
+                12
+              </h5>
+
+              <p class="text-white/45 text-sm mt-2">
+                Unit Song
+              </p>
+
+            </div>
+
+            <div class="stat-box rounded-2xl p-5 text-center">
+
+              <h5 class="text-2xl font-bold text-white">
+                6
+              </h5>
+
+              <p class="text-white/45 text-sm mt-2">
+                Setlist
+              </p>
+
+            </div>
+
+            <div class="stat-box rounded-2xl p-5 text-center">
+
+              <h5 class="text-2xl font-bold text-white">
+                100%
+              </h5>
+
+              <p class="text-white/45 text-sm mt-2">
+                Carissera Love
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
   <!-- SCRIPT -->
   <script>
 
@@ -1470,5 +1930,154 @@ setInterval(() => {
 }, 4500);
 
 </script>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer class="relative z-10 border-t border-white/10 mt-10">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-16 py-6">
+
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <!-- LEFT -->
+      <div>
+
+        <!-- LOGO -->
+        <div class="flex items-center gap-3 mb-4">
+
+          <img
+            src="carisseralogo.jpg"
+            alt="Carissera Logo"
+            class="w-12 h-12 rounded-full object-cover border border-white/20"
+          />
+
+          <h2 class="logo-font text-2xl">
+            Carissera
+          </h2>
+
+        </div>
+
+        <p class="text-white/70 leading-7 text-sm max-w-sm">
+          Official Fanbase of Carissa from the 14th Generation of JKT48.
+        </p>
+
+      </div>
+
+      <!-- MOBILE / DESKTOP WRAP -->
+      <div class="grid grid-cols-2 gap-8 md:contents">
+
+        <!-- CENTER -->
+        <div>
+
+          <h3 class="text-white text-lg font-semibold mb-5">
+            Halaman
+          </h3>
+
+          <div class="flex flex-col gap-3 text-white/70 text-sm">
+
+            <a href="index.html" class="hover:text-white duration-300">
+              Home
+            </a>
+
+            <a href="#" class="hover:text-white duration-300">
+              News
+            </a>
+
+            <a href="#" class="hover:text-white duration-300">
+              About
+            </a>
+
+            <a href="#" class="hover:text-white duration-300">
+              Gallery
+            </a>
+
+            <a href="#" class="hover:text-white duration-300">
+              Shop
+            </a>
+
+            <a href="#" class="hover:text-white duration-300">
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+
+          <h3 class="text-white text-lg font-semibold mb-5">
+            Media Sosial Carissera
+          </h3>
+
+          <div class="flex flex-col gap-3 text-white/70 text-sm mb-6">
+
+            <a href="https://www.instagram.com/carissera_/" class="hover:text-white duration-300">
+              Instagram
+            </a>
+
+            <a href="https://x.com/Cariserra_" class="hover:text-white duration-300">
+              X (Twitter)
+            </a>
+
+            <a href="https://www.tiktok.com/@carissera_" class="hover:text-white duration-300">
+              TikTok
+            </a>
+
+          </div>
+
+        </div>
+
+<!-- HASHTAG -->
+<div class="flex flex-wrap gap-2 col-span-2 md:col-span-1">
+
+          <a href="https://x.com/search?q=%23CariPap&src=typed_query" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CariPap
+          </a>
+
+          <a href="https://x.com/search?q=%23CaReply&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CaReply
+          </a>
+
+          <a href="https://x.com/search?q=%23Carita&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #Carita
+          </a>
+
+          <a href="https://x.com/search?q=%23Carissmates&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #Carissmates
+          </a>
+
+          <a href="https://x.com/search?q=%23CarissTime&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CarissTime
+          </a>
+
+          <a href="https://x.com/search?q=%23Cariview&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #Cariview
+          </a>
+
+          <a href="https://x.com/search?q=%23CallRissa&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CallRissa
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="border-t border-white/10 mt-8 pt-2 text-center">
+
+      <p class="text-white/50 text-sm">
+        © 2026 Carissera. All rights reserved.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
 </body>
 </html>
