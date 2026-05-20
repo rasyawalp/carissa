@@ -1441,6 +1441,44 @@ nav ul li a.active::after{
     0 0,
     80px 100px;
 }
+
+/* ========================= */
+/* SCROLL REVEAL */
+/* ========================= */
+
+.reveal{
+
+  opacity: 0;
+
+  transform:
+    translateY(40px)
+    scale(0.96);
+
+  filter: blur(12px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+
+  will-change:
+    opacity,
+    transform,
+    filter;
+}
+
+/* ACTIVE */
+
+.reveal.active{
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0px);
+}
   </style>
 </head>
 
@@ -1610,7 +1648,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 <!-- SECTION : KENALI CARISSA -->
 <!-- ========================= -->
 
-<section class="about-section py-24 px-6 lg:px-16">
+<section class="about-section reveal py-24 px-6 lg:px-16">
 
   <!-- STARS -->
   <div class="about-stars"></div>
@@ -1632,7 +1670,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
         Kenali Carissa
       </h2>
 
-      <p class="text-white/65 mt-5 max-w-2xl mx-auto leading-8 text-sm md:text-base">
+<p class="carissera-desc text-center mx-auto mt-5">
         Sosok ceria dengan senyuman hangat yang selalu berhasil membawa warna di setiap penampilannya bersama JKT48.
       </p>
 
@@ -1992,6 +2030,47 @@ setInterval(() => {
 
 </script>
 
+<script>
+
+/* ========================= */
+/* SCROLL REVEAL */
+/* ========================= */
+
+const reveals =
+  document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+
+  const triggerBottom =
+    window.innerHeight * 0.88;
+
+  reveals.forEach((el) => {
+
+    const top =
+      el.getBoundingClientRect().top;
+
+    if(top < triggerBottom){
+
+      el.classList.add("active");
+
+    }
+
+  });
+
+};
+
+window.addEventListener(
+  "scroll",
+  revealOnScroll
+);
+
+window.addEventListener(
+  "load",
+  revealOnScroll
+);
+
+</script>
+
 <!-- ========================= -->
 <!-- FOOTER -->
 <!-- ========================= -->
@@ -2140,5 +2219,102 @@ setInterval(() => {
   </div>
 
 </footer>
+
+<!-- TO TOP BUTTON -->
+
+<button
+  id="toTopBtn"
+  class="
+    fixed
+    bottom-5
+    right-5
+    z-[9999]
+
+    w-12
+    h-12
+
+    rounded-2xl
+
+    bg-white/10
+    backdrop-blur-md
+
+    border
+    border-white/10
+
+    text-white
+    text-xl
+
+    flex
+    items-center
+    justify-center
+
+    opacity-0
+    invisible
+
+    transition-all
+    duration-500
+
+    hover:rotate-45
+    hover:rounded-[28px]
+    hover:bg-white
+    hover:text-[#020b3f]
+
+    active:scale-90
+  "
+>
+  <span class="transition-transform duration-500 hover:-rotate-45">
+    ⌃
+  </span>
+</button>
+
+<script>
+
+/* ========================= */
+/* TO TOP BUTTON */
+/* ========================= */
+
+const toTopBtn =
+  document.getElementById("toTopBtn");
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 300){
+
+    toTopBtn.classList.remove(
+      "opacity-0",
+      "invisible"
+    );
+
+    toTopBtn.classList.add(
+      "opacity-100"
+    );
+
+  } else {
+
+    toTopBtn.classList.add(
+      "opacity-0",
+      "invisible"
+    );
+
+    toTopBtn.classList.remove(
+      "opacity-100"
+    );
+
+  }
+
+});
+
+toTopBtn.addEventListener("click", () => {
+
+  window.scrollTo({
+
+    top: 0,
+    behavior: "smooth"
+
+  });
+
+});
+
+</script>
 </body>
 </html>
