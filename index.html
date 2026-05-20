@@ -2220,11 +2220,10 @@ window.addEventListener(
 
 </footer>
 
-<!-- TO TOP BUTTON -->
-
 <button
   id="toTopBtn"
   class="
+    group
     fixed
     bottom-5
     right-5
@@ -2255,14 +2254,15 @@ window.addEventListener(
     duration-500
 
     hover:rotate-45
-    hover:rounded-[28px]
+    hover:scale-110
     hover:bg-white
     hover:text-[#020b3f]
+    hover:shadow-[0_0_30px_rgba(255,255,255,0.25)]
 
     active:scale-90
   "
 >
-  <span class="transition-transform duration-500 hover:-rotate-45">
+  <span class="transition-transform duration-500 group-hover:-rotate-45">
     ⌃
   </span>
 </button>
