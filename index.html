@@ -1612,8 +1612,8 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
 <section class="about-section py-24 px-6 lg:px-16">
 
-<!-- STARS -->
-<div class="about-stars"></div>
+  <!-- STARS -->
+  <div class="about-stars"></div>
 
   <!-- BLUR -->
   <div class="absolute top-[-120px] left-[-100px] w-[300px] h-[300px] bg-blue-400/10 blur-[120px] rounded-full"></div>
@@ -1639,31 +1639,31 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
     </div>
 
     <!-- CONTENT -->
-    <div class="grid lg:grid-cols-2 gap-14 items-center">
+    <div class="grid lg:grid-cols-[0.8fr_1fr] gap-8 items-start">
 
       <!-- LEFT -->
-      <div class="relative flex justify-center">
+      <div class="relative flex flex-col items-center">
 
         <!-- GLOW -->
         <div class="absolute w-[340px] h-[340px] bg-blue-400/20 rounded-full blur-[100px]"></div>
 
         <!-- IMAGE -->
-        <div class="about-image relative w-full max-w-[420px]">
+        <div class="about-image relative w-full max-w-[320px] lg:max-w-[360px]">
 
           <img
             src="kabeshacarissa.jpg"
             alt="Carissa"
-            class="w-full h-[560px] object-cover"
+            class="w-full h-[430px] lg:h-[470px] object-cover"
           />
 
           <!-- TEXT -->
-          <div class="absolute bottom-0 left-0 p-7 z-10">
+          <div class="absolute bottom-0 left-0 p-6 z-10">
 
-            <p class="text-white/60 text-sm mb-2">
+            <p class="text-white/60 text-xs mb-2">
               14th Generation of JKT48
             </p>
 
-            <h3 class="text-white text-3xl font-semibold">
+            <h3 class="text-white text-lg lg:text-xl font-semibold leading-tight">
               Carissa Dini Asmaranti
             </h3>
 
@@ -1671,61 +1671,81 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
         </div>
 
+        <!-- FUNFACT AUTO -->
+        <div class="info-box rounded-2xl p-4 mt-4 w-full max-w-[360px]">
+
+          <p class="text-white/40 text-xs mb-2 tracking-wide">
+            RANDOM FUNFACT
+          </p>
+
+          <h4
+            id="funfactText"
+            class="text-white text-sm lg:text-[0.95rem] font-medium leading-relaxed transition-all duration-500"
+          >
+            Suka nonton dracin & drakor 
+          </h4>
+
+        </div>
+
       </div>
 
-      <!-- RIGHT -->
-      <div>
+<!-- RIGHT -->
+<div class="w-full md:max-w-none max-w-[360px] mx-auto">
 
         <!-- CARD -->
-        <div class="about-card rounded-[30px] p-7 md:p-9">
+        <div class="about-card rounded-[24px] p-4 md:p-5">
 
           <!-- INFO -->
-          <div class="grid sm:grid-cols-2 gap-5">
+          <div class="grid sm:grid-cols-2 gap-3">
 
-            <div class="info-box rounded-2xl p-5">
+            <!-- ITEM -->
+            <div class="info-box rounded-2xl p-3">
 
-              <p class="text-white/45 text-sm mb-2">
+              <p class="text-white/45 text-xs mb-2">
                 Nama Lengkap
               </p>
 
-              <h4 class="text-white text-lg font-medium">
+              <h4 class="text-white text-[0.95rem] lg:text-base font-medium leading-snug">
                 Carissa Dini Asmaranti
               </h4>
 
             </div>
 
-            <div class="info-box rounded-2xl p-5">
+            <!-- ITEM -->
+            <div class="info-box rounded-2xl p-3">
 
-              <p class="text-white/45 text-sm mb-2">
-                Generasi
+              <p class="text-white/45 text-xs mb-2">
+                Nama Panggilan
               </p>
 
-              <h4 class="text-white text-lg font-medium">
-                JKT48 Generasi 14
+              <h4 class="text-white text-[0.95rem] lg:text-base font-medium leading-snug">
+                Carissa
               </h4>
 
             </div>
 
-            <div class="info-box rounded-2xl p-5">
+            <!-- ITEM -->
+            <div class="info-box rounded-2xl p-3">
 
-              <p class="text-white/45 text-sm mb-2">
-                Birthday
+              <p class="text-white/45 text-xs mb-2">
+                Tanggal Lahir
               </p>
 
-              <h4 class="text-white text-lg font-medium">
-                12 Februari
+              <h4 class="text-white text-[0.95rem] lg:text-base font-medium leading-snug">
+                2 Februari 2012
               </h4>
 
             </div>
 
-            <div class="info-box rounded-2xl p-5">
+            <!-- ITEM -->
+            <div class="info-box rounded-2xl p-3">
 
-              <p class="text-white/45 text-sm mb-2">
-                Oshi Color
+              <p class="text-white/45 text-xs mb-2">
+                Asal
               </p>
 
-              <h4 class="text-white text-lg font-medium">
-                Biru • Putih
+              <h4 class="text-white text-[0.95rem] lg:text-base font-medium leading-snug">
+                Bandung
               </h4>
 
             </div>
@@ -1733,61 +1753,61 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
           </div>
 
           <!-- QUOTE -->
-          <div class="quote-box mt-8 rounded-2xl p-6">
+          <div class="quote-box mt-6 rounded-2xl p-5">
 
-            <p class="text-white/80 leading-8 text-[0.95rem]">
-              “Melalui setiap senyum, suara, dan langkah kecilnya di atas panggung, Carissa selalu berhasil menciptakan momen hangat yang membuat banyak orang merasa dekat dengannya.”
+            <p class="text-white/80 leading-7 text-[0.85rem] lg:text-[0.92rem]">
+              "Aku adalah pemberi ramuan kedamaian. Only for you! Halo aku Carissa!"
             </p>
 
           </div>
 
           <!-- STATS -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
 
-            <div class="stat-box rounded-2xl p-5 text-center">
+            <div class="stat-box rounded-2xl p-4 text-center">
 
-              <h5 class="text-2xl font-bold text-white">
-                48+
+              <h5 class="text-xl lg:text-2xl font-bold text-white">
+                2
               </h5>
 
-              <p class="text-white/45 text-sm mt-2">
+              <p class="text-white/45 text-xs mt-2">
                 Theater Show
               </p>
 
             </div>
 
-            <div class="stat-box rounded-2xl p-5 text-center">
+            <div class="stat-box rounded-2xl p-4 text-center">
 
-              <h5 class="text-2xl font-bold text-white">
-                12
+              <h5 class="text-xl lg:text-2xl font-bold text-white">
+                1
               </h5>
 
-              <p class="text-white/45 text-sm mt-2">
+              <p class="text-white/45 text-xs mt-2">
                 Unit Song
               </p>
 
             </div>
 
-            <div class="stat-box rounded-2xl p-5 text-center">
+            <div class="stat-box rounded-2xl p-4 text-center">
 
-              <h5 class="text-2xl font-bold text-white">
-                6
+              <h5 class="text-xl lg:text-2xl font-bold text-white">
+                1
               </h5>
 
-              <p class="text-white/45 text-sm mt-2">
+              <p class="text-white/45 text-xs mt-2">
                 Setlist
               </p>
 
             </div>
 
-            <div class="stat-box rounded-2xl p-5 text-center">
+            <div class="stat-box rounded-2xl p-4 text-center">
 
-              <h5 class="text-2xl font-bold text-white">
-                100%
+              <h5 class="text-xl lg:text-2xl font-bold text-white">
+                0
               </h5>
 
-              <p class="text-white/45 text-sm mt-2">
-                Carissera Love
+              <p class="text-white/45 text-xs mt-2">
+                Handshake/Event
               </p>
 
             </div>
@@ -1928,6 +1948,47 @@ setInterval(() => {
   showingFirst = !showingFirst;
 
 }, 4500);
+
+</script>
+
+<script>
+
+const funfacts = [
+
+  "Suka nonton dracin & drakor",
+  "Sudah menamatkan semua makanan Korea",
+  "S3 per-matchaan",
+  "Mau dipanggil 'Carissa Yeppeo'",
+  "Suka dipuji cantik",
+  "Jago bikin pantun"
+
+];
+
+const funfactText =
+  document.getElementById("funfactText");
+
+let factIndex = 0;
+
+setInterval(() => {
+
+  factIndex++;
+
+  if(factIndex >= funfacts.length){
+    factIndex = 0;
+  }
+
+  funfactText.style.opacity = 0;
+
+  setTimeout(() => {
+
+    funfactText.innerHTML =
+      funfacts[factIndex];
+
+    funfactText.style.opacity = 1;
+
+  }, 250);
+
+}, 3500);
 
 </script>
 
