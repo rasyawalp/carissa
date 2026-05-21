@@ -1537,6 +1537,408 @@ nav ul li a.active::after{
 
   opacity: 1;
 }
+
+/* ========================= */
+/* SECTION GALLERY */
+/* ========================= */
+
+.gallery-section{
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* GRID ITEM */
+
+.gallery-item{
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.03);
+
+  transition: 0.4s ease;
+}
+
+.gallery-item img{
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+
+  filter: brightness(0.88);
+}
+
+.gallery-item:hover img{
+
+  transform: scale(1.08);
+
+  filter: brightness(1);
+}
+
+/* OVERLAY */
+
+.gallery-item::after{
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(2,11,63,0.85),
+      transparent 55%
+    );
+
+  opacity: 1;
+
+  transition: 0.4s ease;
+}
+
+.gallery-item:hover::after{
+
+  opacity: 0.6;
+}
+
+/* GLOW ON HOVER */
+
+.gallery-item::before{
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 0 0 rgba(91,140,255,0);
+
+  transition: 0.4s ease;
+
+  z-index: 2;
+}
+
+.gallery-item:hover{
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.45),
+    0 0 30px rgba(91,140,255,0.18);
+
+  border-color:
+    rgba(155,184,255,0.2);
+}
+
+/* CAPTION */
+
+.gallery-caption{
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 16px 18px;
+
+  z-index: 3;
+
+  transform: translateY(6px);
+
+  opacity: 0;
+
+  transition: 0.4s ease;
+}
+
+.gallery-item:hover .gallery-caption{
+
+  transform: translateY(0);
+
+  opacity: 1;
+}
+
+/* ZOOM ICON */
+
+.gallery-zoom{
+
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 14px;
+
+  z-index: 3;
+
+  opacity: 0;
+
+  transform: scale(0.8);
+
+  transition: 0.4s ease;
+}
+
+.gallery-item:hover .gallery-zoom{
+
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(2,11,63,0.96);
+
+  backdrop-filter: blur(20px);
+
+  z-index: 9000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.4s ease;
+}
+
+.lightbox.active{
+
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img{
+
+  max-width: 88vw;
+  max-height: 85vh;
+
+  object-fit: contain;
+
+  border-radius: 16px;
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 60px rgba(91,140,255,0.15);
+
+  transform: scale(0.92);
+
+  transition: 0.4s ease;
+}
+
+.lightbox.active .lightbox-img{
+
+  transform: scale(1);
+}
+
+/* CLOSE BTN */
+
+.lightbox-close{
+
+  position: absolute;
+
+  top: 20px;
+  right: 24px;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  color: white;
+
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.lightbox-close:hover{
+
+  background: rgba(255,255,255,0.2);
+
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* LIGHTBOX NAV */
+
+.lightbox-nav{
+
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  color: white;
+
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.lightbox-nav:hover{
+
+  background: rgba(255,255,255,0.18);
+}
+
+.lightbox-prev{
+
+  left: 20px;
+}
+
+.lightbox-next{
+
+  right: 20px;
+}
+
+/* COUNTER */
+
+.lightbox-counter{
+
+  position: absolute;
+
+  bottom: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  border-radius: 999px;
+
+  padding: 6px 16px;
+
+  color: rgba(255,255,255,0.7);
+
+  font-size: 0.8rem;
+
+  font-family: "Fredoka", sans-serif;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+  .gallery-caption{
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+  .gallery-zoom{
+
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+  .lightbox-nav{
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+  }
+
+  .lightbox-prev{
+
+    left: 10px;
+  }
+
+  .lightbox-next{
+
+    right: 10px;
+  }
+
+}
   </style>
 </head>
 
@@ -2118,21 +2520,488 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
 </section>
 
-  <!-- SCRIPT -->
-  <script>
+<!-- ========================= -->
+<!-- SECTION : GALLERY -->
+<!-- ========================= -->
 
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+<section id="gallery" class="gallery-section py-24 px-6 lg:px-16">
 
-    menuBtn.addEventListener("click", () => {
+  <!-- STARS -->
+  <div class="about-stars"></div>
 
-      menuBtn.classList.toggle("active");
+  <!-- BLUR -->
+  <div class="absolute top-[-100px] left-[-80px] w-[300px] h-[300px] bg-indigo-400/10 blur-[120px] rounded-full"></div>
 
-      mobileMenu.classList.toggle("active");
+  <div class="absolute bottom-[-100px] right-[-80px] w-[320px] h-[320px] bg-blue-400/10 blur-[120px] rounded-full"></div>
 
+  <div class="relative z-10 max-w-7xl mx-auto">
+
+    <!-- TITLE -->
+    <div class="text-center mb-16 reveal">
+
+      <p class="official-text mb-3">
+        Photo Gallery
+      </p>
+
+      <h2 class="logo-font text-[2.8rem] md:text-[4rem] leading-none">
+        Carissa Gallery
+      </h2>
+
+      <p class="carissera-desc text-center mx-auto mt-5">
+        Kumpulan momen dan foto cantik Carissa Dini Asmaranti bersama JKT48.
+      </p>
+
+    </div>
+
+    <!-- GRID -->
+    <div
+      id="galleryGrid"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]"
+    >
+    </div>
+
+    <!-- BUTTON -->
+    <div class="flex justify-center mt-10 gap-4">
+
+      <!-- MORE -->
+      <button
+        id="showMoreBtn"
+        class="
+          px-6 py-3 rounded-full
+          border border-white/15
+          text-white/70 text-sm
+          hover:border-white/30
+          hover:text-white
+          hover:bg-white/05
+          duration-300
+        "
+      >
+        Lihat Selengkapnya →
+      </button>
+
+      <!-- LESS -->
+      <button
+        id="showLessBtn"
+        class="
+          hidden
+          px-6 py-3 rounded-full
+          border border-white/15
+          text-white/70 text-sm
+          hover:border-white/30
+          hover:text-white
+          hover:bg-white/05
+          duration-300
+        "
+      >
+        ← Lihat Lebih Sedikit
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- LIGHTBOX -->
+<!-- ========================= -->
+
+<div
+  id="lightbox"
+  class="lightbox"
+  onclick="closeLightboxOutside(event)"
+>
+
+  <!-- CLOSE -->
+  <button
+    class="lightbox-close"
+    onclick="closeLightbox()"
+  >
+    ✕
+  </button>
+
+  <!-- PREV -->
+  <button
+    class="lightbox-nav lightbox-prev"
+    onclick="lightboxNav(-1)"
+  >
+    ‹
+  </button>
+
+  <!-- IMAGE -->
+  <img
+    id="lightboxImg"
+    class="lightbox-img"
+    src=""
+    alt="Carissa"
+  />
+
+  <!-- NEXT -->
+  <button
+    class="lightbox-nav lightbox-next"
+    onclick="lightboxNav(1)"
+  >
+    ›
+  </button>
+
+  <!-- COUNTER -->
+  <div class="lightbox-counter">
+
+    <span id="lightboxCounter">
+      1 / 28
+    </span>
+
+  </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- GALLERY SCRIPT -->
+<!-- ========================= -->
+
+<script>
+
+/* ========================= */
+/* ELEMENT */
+/* ========================= */
+
+const galleryGrid =
+  document.getElementById("galleryGrid");
+
+const showMoreBtn =
+  document.getElementById("showMoreBtn");
+
+const showLessBtn =
+  document.getElementById("showLessBtn");
+
+const lightbox =
+  document.getElementById("lightbox");
+
+const lightboxImg =
+  document.getElementById("lightboxImg");
+
+const lightboxCounter =
+  document.getElementById("lightboxCounter");
+
+const toTopBtn =
+  document.getElementById("toTopBtn");
+
+/* ========================= */
+/* TOTAL FOTO */
+/* ========================= */
+
+const totalImages = 28;
+
+/* ========================= */
+/* FOTO YANG DITAMPILKAN */
+/* ========================= */
+
+let visibleImages = 6;
+
+/* ========================= */
+/* LIGHTBOX INDEX */
+/* ========================= */
+
+let lightboxIndex = 0;
+
+/* ========================= */
+/* ARRAY FOTO */
+/* ========================= */
+
+const galleryImages = [];
+
+for(let i = 1; i <= totalImages; i++){
+
+  galleryImages.push(
+    `galeri${i}.jpeg`
+  );
+
+}
+
+/* ========================= */
+/* RENDER GALLERY */
+/* ========================= */
+
+function renderGallery(){
+
+  galleryGrid.innerHTML = "";
+
+  for(let i = 0; i < visibleImages; i++){
+
+    const item =
+      document.createElement("div");
+
+    /* SEMUA UKURAN SAMA */
+    item.className =
+      "gallery-item reveal";
+
+    item.setAttribute(
+      "onclick",
+      `openLightbox(${i})`
+    );
+
+    item.innerHTML = `
+
+      <img
+        src="${galleryImages[i]}"
+        alt="Gallery ${i+1}"
+      />
+
+      <div class="gallery-zoom">
+        ⤢
+      </div>
+
+      <div class="gallery-caption">
+
+        <p class="text-white/50 text-[10px] tracking-widest mb-1">
+          #CariPap
+        </p>
+
+        <p class="text-white text-sm font-medium">
+          Carissa JKT48
+        </p>
+
+      </div>
+
+    `;
+
+    galleryGrid.appendChild(item);
+
+  }
+
+  /* REVEAL */
+  setTimeout(() => {
+
+    document
+      .querySelectorAll(".gallery-item")
+      .forEach((el) => {
+
+        el.classList.add("active");
+
+      });
+
+  }, 100);
+
+  /* BUTTON CONTROL */
+
+  if(visibleImages >= totalImages){
+
+    showMoreBtn.classList.add("hidden");
+
+  } else {
+
+    showMoreBtn.classList.remove("hidden");
+
+  }
+
+  if(visibleImages <= 6){
+
+    showLessBtn.classList.add("hidden");
+
+  } else {
+
+    showLessBtn.classList.remove("hidden");
+
+  }
+
+}
+
+/* ========================= */
+/* SHOW MORE */
+/* ========================= */
+
+showMoreBtn.addEventListener("click", () => {
+
+  visibleImages += 6;
+
+  if(visibleImages > totalImages){
+
+    visibleImages = totalImages;
+
+  }
+
+  renderGallery();
+
+});
+
+/* ========================= */
+/* SHOW LESS */
+/* ========================= */
+
+showLessBtn.addEventListener("click", () => {
+
+  visibleImages -= 6;
+
+  if(visibleImages < 6){
+
+    visibleImages = 6;
+
+  }
+
+  renderGallery();
+
+  document
+    .getElementById("gallery")
+    .scrollIntoView({
+      behavior: "smooth"
     });
 
-  </script>
+});
+
+/* ========================= */
+/* OPEN LIGHTBOX */
+/* ========================= */
+
+function openLightbox(index){
+
+  lightboxIndex = index;
+
+  updateLightbox();
+
+  lightbox.classList.add("active");
+
+  document.body.style.overflow = "hidden";
+
+  /* HIDE TO TOP BUTTON */
+  if(topBtn){
+
+    topBtn.classList.add(
+      "opacity-0",
+      "invisible"
+    );
+
+    topBtn.classList.remove(
+      "opacity-100"
+    );
+
+  }
+
+}
+
+/* ========================= */
+/* CLOSE LIGHTBOX */
+/* ========================= */
+
+function closeLightbox(){
+
+  lightbox.classList.remove("active");
+
+  document.body.style.overflow = "";
+
+  /* SHOW TO TOP BUTTON */
+  if(topBtn && window.scrollY > 300){
+
+    topBtn.classList.remove(
+      "opacity-0",
+      "invisible"
+    );
+
+    topBtn.classList.add(
+      "opacity-100"
+    );
+
+  }
+
+}
+
+/* ========================= */
+/* CLOSE OUTSIDE */
+/* ========================= */
+
+function closeLightboxOutside(e){
+
+  if(e.target === lightbox){
+
+    closeLightbox();
+
+  }
+
+}
+
+/* ========================= */
+/* UPDATE IMAGE */
+/* ========================= */
+
+function updateLightbox(){
+
+  lightboxImg.style.opacity = 0;
+
+  setTimeout(() => {
+
+    lightboxImg.src =
+      galleryImages[lightboxIndex];
+
+    lightboxCounter.textContent =
+      `${lightboxIndex + 1} / ${galleryImages.length}`;
+
+    lightboxImg.style.opacity = 1;
+
+  }, 150);
+
+}
+
+/* ========================= */
+/* NAVIGATION */
+/* ========================= */
+
+function lightboxNav(dir){
+
+  lightboxIndex += dir;
+
+  if(lightboxIndex < 0){
+
+    lightboxIndex =
+      galleryImages.length - 1;
+
+  }
+
+  if(lightboxIndex >= galleryImages.length){
+
+    lightboxIndex = 0;
+
+  }
+
+  updateLightbox();
+
+}
+
+/* ========================= */
+/* KEYBOARD */
+/* ========================= */
+
+document.addEventListener("keydown", (e) => {
+
+  if(!lightbox.classList.contains("active")){
+    return;
+  }
+
+  if(e.key === "Escape"){
+
+    closeLightbox();
+
+  }
+
+  if(e.key === "ArrowRight"){
+
+    lightboxNav(1);
+
+  }
+
+  if(e.key === "ArrowLeft"){
+
+    lightboxNav(-1);
+
+  }
+
+});
+
+/* ========================= */
+/* FIRST LOAD */
+/* ========================= */
+
+renderGallery();
+
+</script>
 
   <script>
 /* ========================= */
@@ -2529,30 +3398,42 @@ window.addEventListener(
 /* TO TOP BUTTON */
 /* ========================= */
 
-const toTopBtn =
+const topBtn =
   document.getElementById("toTopBtn");
 
+/* SCROLL */
 window.addEventListener("scroll", () => {
+
+  const activeLightbox =
+    document.getElementById("lightbox");
+
+  /* kalau lightbox aktif */
+  if(
+    activeLightbox &&
+    activeLightbox.classList.contains("active")
+  ){
+    return;
+  }
 
   if(window.scrollY > 300){
 
-    toTopBtn.classList.remove(
+    topBtn.classList.remove(
       "opacity-0",
       "invisible"
     );
 
-    toTopBtn.classList.add(
+    topBtn.classList.add(
       "opacity-100"
     );
 
   } else {
 
-    toTopBtn.classList.add(
+    topBtn.classList.add(
       "opacity-0",
       "invisible"
     );
 
-    toTopBtn.classList.remove(
+    topBtn.classList.remove(
       "opacity-100"
     );
 
@@ -2560,7 +3441,8 @@ window.addEventListener("scroll", () => {
 
 });
 
-toTopBtn.addEventListener("click", () => {
+/* CLICK */
+topBtn.addEventListener("click", () => {
 
   window.scrollTo({
 
