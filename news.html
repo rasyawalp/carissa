@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carissera</title>
+<link
+  rel="shortcut icon"
+  href="carisseralogo.jpg"
+/>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      overflow-x: hidden;
+      background: #020b3f;
+    }
+
+/* ========================= */
+/* MOBILE DROPDOWN MENU */
+/* ========================= */
+
+.mobile-menu {
+
+  position: fixed;
+
+  top: 64px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(-20px);
+
+  width: calc(100% - 28px);
+  max-width: 320px;
+
+  background: rgba(7,15,70,0.88);
+
+  backdrop-filter: blur(16px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 16px;
+
+  padding: 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.35s ease;
+
+  z-index: 40;
+}
+
+/* ACTIVE */
+
+.mobile-menu.active {
+
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0px);
+}
+
+/* ========================= */
+/* MOBILE MENU LINK */
+/* ========================= */
+
+.mobile-menu a {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  padding: 10px 4px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+
+  transition: 0.3s ease;
+}
+
+/* HOVER */
+
+.mobile-menu a:hover {
+
+  color: #9bb8ff;
+
+  padding-left: 12px;
+}
+
+/* PANAH */
+
+.mobile-menu a::after {
+
+  content: "→";
+
+  opacity: 0.7;
+
+  transition: 0.3s ease;
+}
+
+/* PANAH HOVER */
+
+.mobile-menu a:hover::after {
+
+  transform: translateX(5px);
+
+  opacity: 1;
+}
+
+/* LAST CHILD */
+
+.mobile-menu a:last-child {
+
+  border-bottom: none;
+}
+
+.mobile-menu::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -6px;
+  right: 22px;
+
+  width: 12px;
+  height: 12px;
+
+  background: rgba(7,15,70,0.88);
+
+  transform: rotate(45deg);
+
+  border-left:
+    1px solid rgba(255,255,255,0.08);
+
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* ========================= */
+/* LAST MENU */
+/* ========================= */
+
+.mobile-menu a:last-child {
+
+  border-bottom: none;
+}
+
+/* ========================= */
+/* HAMBURGER */
+/* ========================= */
+
+.hamburger {
+
+  width: 28px;
+  height: 20px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+  z-index: 60;
+}
+
+/* GARIS */
+
+.hamburger span {
+
+  width: 100%;
+  height: 3px;
+
+  background: white;
+
+  border-radius: 999px;
+
+  transition: 0.5s ease;
+}
+
+/* LOVE */
+
+.heart-shape {
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 18px;
+  height: 18px;
+
+  background: white;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-45deg)
+    scale(0);
+
+  opacity: 0;
+
+  transition: 0.5s ease;
+}
+
+/* BULATAN LOVE */
+
+.heart-shape::before,
+.heart-shape::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  background: white;
+
+  border-radius: 50%;
+}
+
+.heart-shape::before {
+
+  top: -9px;
+  left: 0;
+}
+
+.heart-shape::after {
+
+  left: 9px;
+  top: 0;
+}
+
+/* ACTIVE */
+
+/* garis hilang */
+
+.hamburger.active span {
+
+  opacity: 0;
+
+  transform: scale(0);
+}
+
+/* love muncul */
+
+.hamburger.active .heart-shape {
+
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-45deg)
+    scale(1);
+}
+
+/* ========================= */
+/* CUSTOM SCROLLBAR */
+/* ========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020b3f;
+}
+
+::-webkit-scrollbar-thumb {
+
+  background:
+    linear-gradient(
+      180deg,
+      #6ea0ff,
+      #3f6fff
+    );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+  background:
+    linear-gradient(
+      180deg,
+      #8ab3ff,
+      #5c82ff
+    );
+}
+
+/* ========================= */
+/* STICKY NAVBAR */
+/* ========================= */
+
+#navbar {
+  transition: 0.4s ease;
+}
+
+#navbar.scrolled {
+  background: rgba(2,11,63,0.82);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* ========================= */
+/* SCROLL PROGRESS BAR */
+/* ========================= */
+
+#progressBar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #7aa2ff,
+    #3f6fff,
+    #9bb8ff
+  );
+
+  z-index: 9999;
+
+  box-shadow:
+    0 0 12px rgba(91,140,255,0.8);
+}
+
+/* ========================= */
+/* HIDE MOBILE MENU DI DESKTOP */
+/* ========================= */
+
+@media (min-width: 768px) {
+
+  .mobile-menu {
+    display: none !important;
+  }
+
+}
+
+#navbar img{
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.18);
+
+  transition: 0.35s ease;
+}
+
+#navbar img:hover{
+
+  transform:
+    scale(1.08)
+    rotate(3deg);
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.28);
+}
+
+@media (max-width: 768px){
+
+  /* ========================= */
+  /* NAVBAR MOBILE */
+  /* ========================= */
+
+  #navbar{
+
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* ========================= */
+  /* LOGO IMAGE */
+  /* ========================= */
+
+  #navbar img{
+
+    width: 30px;
+    height: 30px;
+  }
+
+  /* ========================= */
+  /* LOGO TEXT */
+  /* ========================= */
+
+  #navbar .logo-font{
+
+    font-size: 1.2rem !important;
+
+    -webkit-text-stroke: 1.2px #15155c;
+
+    letter-spacing: 1px;
+  }
+
+  /* ========================= */
+  /* HAMBURGER */
+  /* ========================= */
+
+  .hamburger{
+
+    width: 22px;
+    height: 16px;
+  }
+
+  .hamburger span{
+
+    height: 2px;
+  }
+
+  /* LOVE ICON */
+
+  .heart-shape{
+
+    width: 14px;
+    height: 14px;
+  }
+
+  .heart-shape::before,
+  .heart-shape::after{
+
+    width: 14px;
+    height: 14px;
+  }
+
+  .heart-shape::before{
+
+    top: -7px;
+  }
+
+  .heart-shape::after{
+
+    left: 7px;
+  }
+
+}
+
+@media (max-width: 768px){
+
+  .icons{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+  }
+
+}
+
+/* ========================= */
+/* NAVBAR ACTIVE MENU */
+/* ========================= */
+
+nav ul li a{
+
+  position: relative;
+
+  color: rgba(255,255,255,0.78);
+
+  transition: 0.35s ease;
+}
+
+/* HOVER */
+
+nav ul li a:hover{
+
+  color: white;
+}
+
+/* ACTIVE */
+
+nav ul li a.active{
+
+  color: #9bb8ff;
+
+  text-shadow:
+    0 0 12px rgba(155,184,255,0.6);
+}
+
+/* UNDERLINE */
+
+nav ul li a.active::after{
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 100%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8fb1ff,
+      #dbe6ff
+    );
+
+  box-shadow:
+    0 0 10px rgba(143,177,255,0.6);
+}
+
+/* ========================= */
+/* DESKTOP MODE ON PHONE */
+/* ========================= */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+  /* NAVBAR */
+  #navbar {
+
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+
+  /* MENU DESKTOP */
+  nav ul {
+
+    gap: 18px !important;
+
+    font-size: 0.82rem !important;
+  }
+
+  /* LOGO */
+  #navbar img {
+
+    width: 34px;
+    height: 34px;
+  }
+
+  /* TEXT LOGO */
+  #navbar .logo-font {
+
+    font-size: 1.5rem !important;
+
+    -webkit-text-stroke: 1.5px #15155c;
+  }
+
+  /* FOOTER MOBILE LAYOUT */
+  .footer-mobile-wrap{
+
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 28px;
+
+    align-items: start;
+  }
+
+  /* HASHTAG FULL WIDTH */
+  .footer-hashtag{
+
+    grid-column: span 2;
+  }
+
+}
+
+@media (min-width: 768px){
+
+  .grid.md\:grid-cols-3 > .grid.grid-cols-2{
+    display: contents;
+  }
+
+}
+
+/* ========================= */
+/* ABOUT STARS */
+/* ========================= */
+
+.about-stars{
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.35;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size:
+    140px 140px,
+    180px 180px,
+    220px 220px;
+
+  background-position:
+    0 0,
+    70px 90px,
+    120px 40px;
+
+  pointer-events: none;
+}
+
+.main-cosmic-bg{
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #1027a0 0%,
+      #020b3f 45%,
+      #010625 100%
+    );
+}
+
+/* STARS GLOBAL */
+
+.main-cosmic-bg::before{
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.35;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size:
+    140px 140px,
+    220px 220px;
+
+  background-position:
+    0 0,
+    80px 100px;
+}
+
+/* ========================= */
+/* SCROLL REVEAL */
+/* ========================= */
+
+.reveal{
+
+  opacity: 0;
+
+  transform:
+    translateY(40px)
+    scale(0.96);
+
+  filter: blur(12px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+
+  will-change:
+    opacity,
+    transform,
+    filter;
+}
+
+/* ACTIVE */
+
+.reveal.active{
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0px);
+}
+
+/* ========================= */
+/* GLOBAL TEXT STYLE */
+/* ========================= */
+
+.logo-font {
+
+  font-family: 'Titan One', cursive;
+
+  color: white;
+
+  letter-spacing: 2px;
+
+  -webkit-text-stroke: 2px #15155c;
+
+  text-shadow:
+    0 4px 20px rgba(0,0,0,0.35);
+}
+
+.official-text {
+
+  display: inline-block;
+
+  padding:
+    8px 18px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  color: rgba(255,255,255,0.85);
+
+  font-size: 0.8rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  backdrop-filter: blur(10px);
+}
+
+.carissera-desc {
+
+  color: rgba(255,255,255,0.72);
+
+  line-height: 1.9;
+
+  max-width: 720px;
+
+  font-size: 0.95rem;
+}
+
+/* ========================= */
+/* SECTION LABEL */
+/* ========================= */
+
+.section-label {
+
+  color: rgba(255,255,255,0.7);
+
+  font-size: 0.95rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  font-weight: 500;
+}
+
+/* ========================= */
+/* NEWS DESCRIPTION */
+/* ========================= */
+
+.news-desc {
+
+  font-family: 'Fredoka', sans-serif;
+
+  color: rgba(255,255,255,0.78);
+
+  line-height: 2;
+
+  max-width: 760px;
+
+  font-size: 1rem;
+
+  font-weight: 400;
+}
+
+/* ========================= */
+/* OFFICIAL SMALL TEXT */
+/* ========================= */
+
+.official-fanbase-text {
+
+  font-family: 'Fredoka', sans-serif;
+
+  color: rgba(255,255,255,0.68);
+
+  font-size: 0.9rem;
+
+  letter-spacing: 4px;
+
+  font-weight: 500;
+}
+  </style>
+</head>
+
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="progressBar"></div>
+
+<div class="main-cosmic-bg">
+
+    <!-- NAVBAR -->
+<nav id="navbar"
+class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:px-12 py-3 duration-300">
+
+      <!-- LOGO -->
+<a href="index.html" class="flex items-center gap-4">
+
+  <!-- LOGO -->
+  <img
+    src="carisseralogo.jpg"
+    alt="Carissera Logo"
+    class="w-10 h-10 rounded-full object-cover border border-white/20 shadow-lg"
+  />
+
+  <!-- TEXT -->
+<h1 class="logo-font text-xl lg:text-3xl">
+    Carissera
+  </h1>
+
+</a>
+
+      <!-- DESKTOP MENU -->
+<ul class="hidden md:flex items-center gap-8 text-[0.95rem]">
+<li><a href="index.html">Home</a></li>
+        <li><a href="news.html" class="active">News</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+<!-- ========================= -->
+<!-- HAMBURGER -->
+<!-- ========================= -->
+
+<div
+  id="menuBtn"
+  class="hamburger md:hidden"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+
+  <!-- LOVE DOT -->
+  <div class="heart-shape"></div>
+</div>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu"
+    >
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+<!-- ========================= -->
+<!-- NEWS PAGE -->
+<!-- ========================= -->
+
+<section class="relative min-h-screen pt-32 pb-24 px-6 lg:px-16 overflow-hidden">
+
+  <!-- BACKGROUND BLUR -->
+  <div class="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-400/10 blur-[120px] rounded-full"></div>
+
+  <div class="absolute bottom-[-120px] right-[-100px] w-[320px] h-[320px] bg-indigo-400/10 blur-[120px] rounded-full"></div>
+
+  <!-- STARS -->
+  <div class="about-stars"></div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 max-w-6xl mx-auto">
+
+    <!-- TITLE -->
+    <div class="text-center mb-16 reveal active">
+
+<p class="official-fanbase-text mb-4">
+  Latest Update
+</p>
+
+      <h1 class="logo-font text-[3rem] md:text-[5rem] leading-none">
+        Carissera News
+      </h1>
+
+<p class="news-desc text-center mx-auto mt-6">
+  Semua informasi terbaru, project, event, dan update terbaru dari Carissera akan muncul di sini.
+</p>
+
+    </div>
+
+    <!-- EMPTY NEWS CARD -->
+    <div class="reveal active">
+
+      <div
+        class="
+          relative
+          overflow-hidden
+
+          rounded-[32px]
+
+          border border-white/10
+          bg-white/5
+
+          backdrop-blur-xl
+
+          p-10 md:p-16
+
+          text-center
+        "
+      >
+
+        <!-- GLOW -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-transparent opacity-60"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10">
+
+          <!-- ICON -->
+          <div
+            class="
+              mx-auto
+              w-24 h-24
+
+              rounded-full
+
+              border border-white/10
+              bg-white/5
+
+              flex items-center justify-center
+
+              text-4xl text-white/80
+
+              mb-8
+            "
+          >
+            ✦
+          </div>
+
+          <!-- TITLE -->
+          <h2 class="text-white text-2xl md:text-3xl font-semibold mb-4">
+            News Belum Tersedia
+          </h2>
+
+          <!-- DESC -->
+          <p class="text-white/60 max-w-xl mx-auto leading-8 text-sm md:text-base">
+            Saat ini belum ada berita yang dipublikasikan.
+            Nantikan update terbaru seputar Carissa, event,
+            project fanbase, dan berbagai informasi menarik lainnya.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <script>
+/* ========================= */
+/* NAVBAR SCROLL EFFECT */
+/* ========================= */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 50){
+
+    navbar.classList.add("scrolled");
+
+  } else {
+
+    navbar.classList.remove("scrolled");
+
+  }
+
+});
+  </script>
+
+  <script>
+/* ========================= */
+/* SCROLL PROGRESS */
+/* ========================= */
+
+const progressBar = document.getElementById("progressBar");
+
+window.addEventListener("scroll", () => {
+
+  const scrollTop = window.scrollY;
+
+  const docHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  const progress =
+    (scrollTop / docHeight) * 100;
+
+  progressBar.style.width = progress + "%";
+
+});
+  </script>
+
+  <script>
+/* ========================= */
+/* RESET MENU DESKTOP */
+/* ========================= */
+
+window.addEventListener("resize", () => {
+
+  if(window.innerWidth >= 768){
+
+    mobileMenu.classList.remove("active");
+
+    menuBtn.classList.remove("active");
+
+  }
+
+});
+  </script>
+
+
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer class="relative z-10 border-t border-white/10 mt-10">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-16 py-6">
+
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <!-- LEFT -->
+      <div>
+
+        <!-- LOGO -->
+        <div class="flex items-center gap-3 mb-4">
+
+          <img
+            src="carisseralogo.jpg"
+            alt="Carissera Logo"
+            class="w-12 h-12 rounded-full object-cover border border-white/20"
+          />
+
+          <h2 class="logo-font text-2xl">
+            Carissera
+          </h2>
+
+        </div>
+
+        <p class="text-white/70 leading-7 text-sm max-w-sm">
+          Official Fanbase of Carissa from the 14th Generation of JKT48.
+        </p>
+
+      </div>
+
+      <!-- MOBILE / DESKTOP WRAP -->
+      <div class="grid grid-cols-2 gap-8 md:contents">
+
+        <!-- CENTER -->
+        <div>
+
+          <h3 class="text-white text-lg font-semibold mb-5">
+            Halaman
+          </h3>
+
+          <div class="flex flex-col gap-3 text-white/70 text-sm">
+
+            <a href="index.html" class="hover:text-white duration-300">
+              Home
+            </a>
+
+            <a href="news.html" class="hover:text-white duration-300">
+              News
+            </a>
+
+            <a href="about.html" class="hover:text-white duration-300">
+              About
+            </a>
+
+            <a href="shop.html" class="hover:text-white duration-300">
+              Shop
+            </a>
+
+            <a href="contact.html" class="hover:text-white duration-300">
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+
+          <h3 class="text-white text-lg font-semibold mb-5">
+            Media Sosial Carissera
+          </h3>
+
+          <div class="flex flex-col gap-3 text-white/70 text-sm mb-6">
+
+            <a href="https://www.instagram.com/carissera_/" class="hover:text-white duration-300">
+              Instagram
+            </a>
+
+            <a href="https://x.com/Cariserra_" class="hover:text-white duration-300">
+              X (Twitter)
+            </a>
+
+            <a href="https://www.tiktok.com/@carissera_" class="hover:text-white duration-300">
+              TikTok
+            </a>
+
+          </div>
+
+        </div>
+
+<!-- HASHTAG -->
+<div class="flex flex-wrap gap-2 col-span-2 md:col-span-1">
+
+          <a href="https://x.com/search?q=%23CariPap&src=typed_query" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CariPap
+          </a>
+
+          <a href="https://x.com/search?q=%23CaReply&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CaReply
+          </a>
+
+          <a href="https://x.com/search?q=%23Carita&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #Carita
+          </a>
+
+          <a href="https://x.com/search?q=%23Carissmates&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #Carissmates
+          </a>
+
+          <a href="https://x.com/search?q=%23CarissTime&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CarissTime
+          </a>
+
+          <a href="https://x.com/search?q=%23Cariview&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #Cariview
+          </a>
+
+          <a href="https://x.com/search?q=%23CallRissa&src=typed_query&f=top" target="_blank" class="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white duration-300">
+            #CallRissa
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="border-t border-white/10 mt-8 pt-2 text-center">
+
+      <p class="text-white/50 text-sm">
+        © 2026 Carissera. All rights reserved.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<button
+  id="toTopBtn"
+  class="
+    group
+    fixed
+    bottom-5
+    right-5
+    z-[9999]
+
+    w-12
+    h-12
+
+    rounded-2xl
+
+    bg-white/10
+    backdrop-blur-md
+
+    border
+    border-white/10
+
+    text-white
+    text-xl
+
+    flex
+    items-center
+    justify-center
+
+    opacity-0
+    invisible
+
+    transition-all
+    duration-500
+
+    hover:rotate-45
+    hover:scale-110
+    hover:bg-white
+    hover:text-[#020b3f]
+    hover:shadow-[0_0_30px_rgba(255,255,255,0.25)]
+
+    active:scale-90
+  "
+>
+  <span class="transition-transform duration-500 group-hover:-rotate-45">
+    ⌃
+  </span>
+</button>
+
+<script>
+
+/* ========================= */
+/* TO TOP BUTTON */
+/* ========================= */
+
+const topBtn =
+  document.getElementById("toTopBtn");
+
+/* SCROLL */
+window.addEventListener("scroll", () => {
+
+  const activeLightbox =
+    document.getElementById("lightbox");
+
+  /* kalau lightbox aktif */
+  if(
+    activeLightbox &&
+    activeLightbox.classList.contains("active")
+  ){
+    return;
+  }
+
+  if(window.scrollY > 300){
+
+    topBtn.classList.remove(
+      "opacity-0",
+      "invisible"
+    );
+
+    topBtn.classList.add(
+      "opacity-100"
+    );
+
+  } else {
+
+    topBtn.classList.add(
+      "opacity-0",
+      "invisible"
+    );
+
+    topBtn.classList.remove(
+      "opacity-100"
+    );
+
+  }
+
+});
+
+/* CLICK */
+topBtn.addEventListener("click", () => {
+
+  window.scrollTo({
+
+    top: 0,
+    behavior: "smooth"
+
+  });
+
+});
+
+</script>
+
+<script>
+
+/* ========================= */
+/* MOBILE MENU TOGGLE */
+/* ========================= */
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+
+  mobileMenu.classList.toggle("active");
+
+  menuBtn.classList.toggle("active");
+
+});
+
+</script>
+</body>
+</html>
