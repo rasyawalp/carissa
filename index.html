@@ -2579,7 +2579,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
           px-3 py-1.5
 
           text-[10px]
-          md:text-[11px]
+          md:text-[13px]
 
           tracking-wide
 
@@ -2608,7 +2608,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
           px-3 py-1.5
 
           text-[10px]
-          md:text-[11px]
+          md:text-[13px]
 
           tracking-wide
 
@@ -2639,7 +2639,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
 <div
   id="lightbox"
-  class="lightbox"
+  class="lightbox z-[10000]"
   onclick="closeLightboxOutside(event)"
 >
 
@@ -2714,7 +2714,7 @@ const lightboxImg =
 const lightboxCounter =
   document.getElementById("lightboxCounter");
 
-/* FIX BUTTON TO TOP */
+/* TO TOP BUTTON */
 
 const galleryTopBtn =
   document.getElementById("toTopBtn");
@@ -3423,6 +3423,7 @@ window.addEventListener(
 
     opacity-0
     invisible
+    pointer-events-none
 
     transition-all
     duration-500
@@ -3450,36 +3451,66 @@ window.addEventListener(
 const topBtn =
   document.getElementById("toTopBtn");
 
+/* ========================= */
 /* SCROLL */
+/* ========================= */
+
 window.addEventListener("scroll", () => {
 
   const activeLightbox =
     document.getElementById("lightbox");
 
-  /* kalau lightbox aktif */
+  /* ========================= */
+  /* LIGHTBOX ACTIVE */
+  /* ========================= */
+
   if(
     activeLightbox &&
     activeLightbox.classList.contains("active")
   ){
+
+    topBtn.classList.add(
+      "opacity-0",
+      "invisible",
+      "pointer-events-none"
+    );
+
+    topBtn.classList.remove(
+      "opacity-100"
+    );
+
     return;
+
   }
+
+  /* ========================= */
+  /* SHOW BUTTON */
+  /* ========================= */
 
   if(window.scrollY > 300){
 
     topBtn.classList.remove(
       "opacity-0",
-      "invisible"
+      "invisible",
+      "pointer-events-none"
     );
 
     topBtn.classList.add(
       "opacity-100"
     );
 
-  } else {
+  }
+
+  /* ========================= */
+  /* HIDE BUTTON */
+  /* ========================= */
+
+  else {
 
     topBtn.classList.add(
       "opacity-0",
-      "invisible"
+      "invisible",
+      "pointer-events-none"
     );
 
     topBtn.classList.remove(
@@ -3490,7 +3521,10 @@ window.addEventListener("scroll", () => {
 
 });
 
+/* ========================= */
 /* CLICK */
+/* ========================= */
+
 topBtn.addEventListener("click", () => {
 
   window.scrollTo({
