@@ -2007,9 +2007,10 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 <!-- HAMBURGER -->
 <!-- ========================= -->
 
-<div
+<button
   id="menuBtn"
   class="hamburger md:hidden"
+  type="button"
 >
   <span></span>
   <span></span>
@@ -2017,7 +2018,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 
   <!-- LOVE DOT -->
   <div class="heart-shape"></div>
-</div>
+</button>
 
     </nav>
 
@@ -3463,6 +3464,24 @@ topBtn.addEventListener("click", () => {
     behavior: "smooth"
 
   });
+
+});
+
+</script>
+
+<script>
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+
+  mobileMenu.classList.toggle("active");
+
+  menuBtn.classList.toggle("active");
 
 });
 
