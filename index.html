@@ -2567,44 +2567,67 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
     >
     </div>
 
-<div class="flex items-center justify-between mt-10">
+    <!-- BUTTON -->
+    <div class="flex items-center justify-between mt-10">
 
-  <!-- LEFT -->
-  <button
-    id="showLessBtn"
-    class="
-      hidden
-      px-3 py-2
-      rounded-full
-      border border-white/15
-      bg-white/5
-      text-white/80
-      hover:bg-white/10
-      hover:text-white
-      duration-300
-    "
-  >
-    ← Lihat Lebih Sedikit
-  </button>
+      <!-- LEFT -->
+      <button
+        id="showLessBtn"
+        class="
+          hidden
 
-  <!-- RIGHT -->
-  <button
-    id="showMoreBtn"
-    class="
-      ml-auto
-      px-3 py-2
-      rounded-full
-      border border-white/15
-      bg-white/10
-      text-white
-      hover:bg-white/20
-      duration-300
-    "
-  >
-    Lihat Selengkapnya →
-  </button>
+          px-3 py-1.5
 
-</div>
+          text-[10px]
+          md:text-[11px]
+
+          tracking-wide
+
+          rounded-full
+
+          border border-white/15
+          bg-white/5
+
+          text-white/75
+
+          hover:bg-white/10
+          hover:text-white
+
+          duration-300
+        "
+      >
+        ← Lihat Lebih Sedikit
+      </button>
+
+      <!-- RIGHT -->
+      <button
+        id="showMoreBtn"
+        class="
+          ml-auto
+
+          px-3 py-1.5
+
+          text-[10px]
+          md:text-[11px]
+
+          tracking-wide
+
+          rounded-full
+
+          border border-white/15
+          bg-white/10
+
+          text-white
+
+          hover:bg-white/20
+
+          duration-300
+        "
+      >
+        Lihat Selengkapnya →
+      </button>
+
+    </div>
 
   </div>
 
@@ -2691,7 +2714,9 @@ const lightboxImg =
 const lightboxCounter =
   document.getElementById("lightboxCounter");
 
-const topBtn =
+/* FIX BUTTON TO TOP */
+
+const galleryTopBtn =
   document.getElementById("toTopBtn");
 
 /* ========================= */
@@ -2882,14 +2907,14 @@ function openLightbox(index){
 
   /* HIDE TO TOP BUTTON */
 
-  if(topBtn){
+  if(galleryTopBtn){
 
-    topBtn.classList.add(
+    galleryTopBtn.classList.add(
       "opacity-0",
       "invisible"
     );
 
-    topBtn.classList.remove(
+    galleryTopBtn.classList.remove(
       "opacity-100"
     );
 
@@ -2909,14 +2934,17 @@ function closeLightbox(){
 
   /* SHOW TO TOP BUTTON */
 
-  if(topBtn && window.scrollY > 300){
+  if(
+    galleryTopBtn &&
+    window.scrollY > 300
+  ){
 
-    topBtn.classList.remove(
+    galleryTopBtn.classList.remove(
       "opacity-0",
       "invisible"
     );
 
-    topBtn.classList.add(
+    galleryTopBtn.classList.add(
       "opacity-100"
     );
 
