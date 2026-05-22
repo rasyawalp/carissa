@@ -801,15 +801,19 @@ nav ul li a.active::after{
 
 .news-desc {
 
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
 
-  color: rgba(255,255,255,0.78);
+  max-width: 500px;
 
-  line-height: 2;
-
-  max-width: 760px;
+  color: #dbe6ff;
 
   font-size: 1rem;
+
+  line-height: 1.7;
+
+  margin-top: 14px;
+
+  margin-bottom: 20px;
 
   font-weight: 400;
 }
@@ -818,17 +822,52 @@ nav ul li a.active::after{
 /* OFFICIAL SMALL TEXT */
 /* ========================= */
 
-.official-fanbase-text {
+.official-fanbase-text{
 
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
 
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.78);
 
-  font-size: 0.9rem;
-
-  letter-spacing: 4px;
+  font-size: 1rem;
 
   font-weight: 500;
+
+  letter-spacing: 0.5px;
+
+  margin-bottom: 12px;
+}
+
+/* ========================= */
+/* PAGE ENTER ANIMATION */
+/* ========================= */
+
+.page-enter {
+
+  opacity: 0;
+
+  transform:
+    translateY(50px)
+    scale(0.98);
+
+  filter: blur(18px);
+
+  animation: pageEnter 1.2s ease forwards;
+
+  animation-delay: 0.15s;
+}
+
+@keyframes pageEnter {
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0px);
+  }
 }
   </style>
 </head>
@@ -904,7 +943,7 @@ class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 lg:
 <!-- NEWS PAGE -->
 <!-- ========================= -->
 
-<section class="relative min-h-screen pt-32 pb-24 px-6 lg:px-16 overflow-hidden">
+<section class="page-enter relative min-h-screen pt-32 pb-24 px-6 lg:px-16 overflow-hidden">
 
   <!-- BACKGROUND BLUR -->
   <div class="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-400/10 blur-[120px] rounded-full"></div>
